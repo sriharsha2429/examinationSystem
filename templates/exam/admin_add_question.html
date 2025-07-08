@@ -1,0 +1,38 @@
+{% extends 'exam/adminbase.html' %}
+{% load widget_tweaks %}
+{% block content %}
+</head>
+<h2 style="text-align:center;">Add Question</h2>
+<form method="POST" autocomplete="off" style="margin:100px;margin-top: 0px;">
+    {%csrf_token%}
+    <div class="form-group">
+        <label for="question">Course</label>
+      {% render_field questionForm.courseID|attr:'required:true' class="form-control form-control-sm rounded-0"  %}
+        <br>
+
+      <label for="question">Example</label>
+      {% render_field questionForm.question|attr:'required:true' class="form-control form-control-sm rounded-0" placeholder="Example: What is Artificial Intelligence?" %}
+        <br>
+      <label for="option1">Option 1</label>
+      {% render_field questionForm.option1|attr:'required:true' class="form-control form-control-sm rounded-0" placeholder="Example : Programming" %}
+        <br>
+      <label for="option2">Option 2</label>
+      {% render_field questionForm.option2|attr:'required:true' class="form-control form-control-sm rounded-0" placeholder="Example: Automation" %}
+        <br>
+      <label for="option3">Option 3</label>
+      {% render_field questionForm.option3|attr:'required:true' class="form-control form-control-sm rounded-0" placeholder="Example : Intelligence" %}
+        <br>
+      <label for="option4">Option 4</label>
+      {% render_field questionForm.option4|attr:'required:true' class="form-control form-control-sm rounded-0" placeholder="Example : Simulation" %}
+        <br>
+      <label for="Simulation">Correct Answer</label>
+      {% render_field questionForm.answer|attr:'required:true' class="form-control form-control-sm rounded-0" %}
+    </div>
+      <label for="question_number">Marks</label>
+      {% render_field questionForm.marks|attr:'required:true' class="form-control form-control-sm rounded-0" placeholder="Example : 5" %}
+        <br>
+
+    <button type="submit" class="btn btn-success" style="border-radius:0px;">Submit Question</button>
+  </form>
+<br><br><br>
+{% endblock content %}
